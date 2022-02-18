@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
 import splash from '../assets/image1.jpg'
 
-export default function LoginPage() {
+export default function LoginPage({navigation}) {
     return <View style={style.container}>
 
-        <Image source={splash} style={{ width: 400, height: 300,  }} />
+        <Image source={splash} style={{ width: 413, height: 250,  }} />
 
 
         <View>
@@ -33,7 +33,8 @@ export default function LoginPage() {
            
             </View>
 
-            <TouchableOpacity style={style.signInButton}>
+            <TouchableOpacity style={style.signInButton}
+            onPress={()=>navigation.navigate('Info')}>
                 <Text style={style.btnText}>SIGN IN</Text>
             </TouchableOpacity>
 
@@ -71,16 +72,17 @@ const style = StyleSheet.create({
         marginLeft: 100,
         paddingTop: 1,
         width: 200,
-        
+        textAlign:'right'
 
     },
     signInButton: {
         backgroundColor:'#f5291b',
-        marginTop:20,
+        marginTop:40,
         alignItems:'center',
+        alignSelf:'center',
         height:40,
         width:300,
-        marginLeft:30
+        borderRadius:3
 
     },
     btnText:{
@@ -89,12 +91,12 @@ const style = StyleSheet.create({
         color:'white'
     },
     forgotText:{
-        marginTop:20,
+        marginTop:40,
         marginLeft:10,
         color:'#f5291b'
     },
     forgotText2:{
-        marginTop:20,
+        marginTop:40,
         marginLeft:10,
         color:'#f5291b',
         borderBottomWidth:1,

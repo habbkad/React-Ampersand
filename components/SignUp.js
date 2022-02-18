@@ -1,12 +1,34 @@
-import React from 'react';
+import {React,useState} from 'react';
 import { View, InpiText, Text, TouchableOpacity, Image, StyleSheet, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
+
 
 export default function SignUp() {
+    const [image, setImage] = useState(null);
+
+
+    const pickImage = async () => {
+        // No permissions request is necessary for launching the image library
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.All,
+          allowsEditing: true,
+          aspect: [4, 3],
+          quality: 1,
+        });
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          setImage(result.uri);
+        }
+      };
+
     return <View style={style.Container}>
         <View style={style.imageCon}>
-            <TouchableOpacity>
-                <Ionicons name="md-person-outline" size={200} color="black" />
+            <TouchableOpacity onPress={pickImage}>
+                <Ionicons name="md-person-outline" size={150} color="black" />
+                {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
                 <Text style={style.imageText}>ADD PROFILE PHOTO</Text>
             </TouchableOpacity>
 
@@ -78,7 +100,7 @@ export default function SignUp() {
         </View>
 
 
-        <TouchableOpacity>
+        <TouchableOpacity style={style.signUp}>
             <Text>REGISTER</Text>
         </TouchableOpacity>
 
@@ -95,6 +117,7 @@ const style = StyleSheet.create({
     imageCon: {
         alignItems: 'center',
         backgroundColor: '#e0d8d7',
+        marginBottom:10
     },
     imageText: {
         alignSelf: 'center',
@@ -106,13 +129,14 @@ const style = StyleSheet.create({
         marginTop: 5,
         padding: 10,
         marginLeft: 10,
+        marginRight:10,
         borderBottomColor: '#ebe6e6',
         borderBottomWidth: 1
     },
     textInput: {
         
         paddingTop: 1,
-        width: 200,
+        width: 250,
         textAlign:"right"
 
 
@@ -120,6 +144,18 @@ const style = StyleSheet.create({
     inputText:{
         textAlign:'left',
         width:100
+    },
+    signUp:{
+        alignSelf:'center',
+        backgroundColor:'#f5291b',
+        width:300,
+        height:40,
+        alignItems:'center',
+        padding:9,
+        color:'white',
+        marginTop:15,
+        borderRadius:3
+
     }
 })
 

@@ -5,6 +5,7 @@ import WelcomeScreen1 from '../components/WelcomeScreen1.js'
 import StarterPage from '../components/StarterPage.js'
 import LoginPage from '../components/LoginPage.js'
 import SignUp from '../components/SignUp.js'
+import ExchangeInformation from '../components/ExchangeInformation.js'
 
 
 const Stack = createNativeStackNavigator()
@@ -14,9 +15,9 @@ const Navigation =()=>{
             <Stack.Screen name="welcomeScreen1" component={WelcomeScreen1}/>
             <Stack.Screen name="Starter" component={StarterPage}/>
             <Stack.Screen name="LogIn" component={LoginPage}/>
-            <Stack.Screen name="SignUp" component={SignUp}/>
-
-           
+            <Stack.Screen name="SignUp" component={SignUp}/>     
+            <Stack.Screen name="Info" component={ExchangeInformation}/>       
+  
         </Stack.Navigator>
 
     </NavigationContainer>
