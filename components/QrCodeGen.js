@@ -4,18 +4,18 @@ import SvgQRCode from 'react-native-qrcode-svg';
 
 
 function Simple() {
-    return <SvgQRCode value="http://example.comiherhflhaihrifiaehihfiliehigfhoerhgioerhgoi"  style={{height:150, width:150}} />;
+    return <SvgQRCode size={200} value="http://example.comiherhflhaihrifiaehihfiliehigfhoerhgioerhgoi"  style={{height:150, width:150}} />;
 }
 export default function QrCodeGen() {
     return (
         <View style={styles.container}>
             <View
                 style={{
-                    width: 100,
-                    height:150,
+                    // width: 100,
+                    // height:150,
                     alignItems: 'center',
                 }}>
-                <Simple />
+                <Simple/>
              
             </View>
         </View>
@@ -27,8 +27,8 @@ export default function QrCodeGen() {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
-        alignItems: 'center',
+        flex:1,
+        // alignItems: 'center',
         backgroundColor: '#ecf0f1',
         
     },

@@ -17,7 +17,7 @@ export default function ExchangeInformation() {
         <Text>Share this Qr code below to share your contacts</Text>
       </View>
 
-      <View>
+      <View style={{flex:1,}}>
         <QrCodeGen />
       </View>
 
@@ -56,6 +56,7 @@ const style = StyleSheet.create({
     flex: 1
   },
   firstTextCon: {
+    flex:0.7,
     marginTop: 30,
     margin: 20,
 
@@ -77,6 +78,7 @@ const style = StyleSheet.create({
 
   },
   scanBtnCon:{
+    flex:0.3,
     borderTopWidth: 2,
     borderTopColor:'black',
     marginTop:50,
